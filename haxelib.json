@@ -1,0 +1,13 @@
+{
+    "name": "reaxe",
+    "url": "https://github.com/Hyperdraw/reaxe",
+    "license": "LGPL-3.0-or-later",
+    "tags": ["cross", "openfl", "reactive", "ui"],
+    "description": "A reactive UI framework for OpenFL",
+    "version": "1.0.0",
+    "classPath": "src/",
+    "dependencies": {
+        "openfl": "",
+        "actuate": ""
+    }
+}
