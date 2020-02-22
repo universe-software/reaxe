@@ -4,9 +4,9 @@
     "license": "LGPL",
     "tags": ["cross", "openfl", "reactive", "ui"],
     "description": "A reactive UI framework for OpenFL",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "classPath": "src/",
-    "releasenote": "Update Readme",
+    "releasenote": "Fix examples in guide",
     "contributors": ["Hyperdraw"],
     "dependencies": {
         "openfl": "",
