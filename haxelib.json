@@ -4,9 +4,9 @@
     "license": "LGPL",
     "tags": ["cross", "openfl", "reactive", "ui"],
     "description": "A reactive UI framework for OpenFL",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "classPath": "src/",
-    "releasenote": "Fix examples in guide",
+    "releasenote": "Make morph not delete children of subcomponents",
     "contributors": ["Hyperdraw"],
     "dependencies": {
         "openfl": "",

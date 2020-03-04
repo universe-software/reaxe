@@ -4,6 +4,8 @@ import openfl.display.DisplayObject;
 import openfl.display.DisplayObjectContainer;
 
 class Element {
+	private var isEmpty: Map<DisplayObject, Bool> = [];
+
     public var type: Class<Dynamic>;
     public var properties: Map<String, Dynamic>;
     public var children: Array<Element>;
@@ -53,6 +55,11 @@ class Element {
 		if(properties.exists('reref'))
 			properties['reref'](obj);
 
+		if(Std.is(obj, DisplayObjectContainer) && cast(obj, DisplayObjectContainer).numChildren == 0)
+			isEmpty[obj] = true;
+		else
+			isEmpty[obj] = false;
+
 		return obj;
     }
 
@@ -71,50 +78,52 @@ class Element {
 		if(Std.is(obj, DisplayObjectContainer)) {
 			var container = cast(obj, DisplayObjectContainer);
 
-			var i = 0;
-			while(i < container.numChildren) {
-				var found = false;
+			if(!isEmpty[container]) {
+				var i = 0;
+				while(i < container.numChildren) {
+					var found = false;
 
-				for(child in children) {
-					if(child.properties['name'] == container.getChildAt(i).name) {
-						found = true;
-						break;
+					for(child in children) {
+						if(child.properties['name'] == container.getChildAt(i).name) {
+							found = true;
+							break;
+						}
 					}
-				}
 
-				if(!found) {
-					container.removeChildAt(i);
-					i--;
-				}
-
-				i++;
-			}
-
-			for(i in 0...children.length) {
-				var found = false;
-
-				for(j in 0...container.numChildren) {
-					if(container.getChildAt(j).name == children[i].properties['name']) {
-						found = true;
-						break;
+					if(!found) {
+						container.removeChildAt(i);
+						i--;
 					}
+
+					i++;
 				}
 
-				if(!found)
-					container.addChildAt(children[i].create(), i);
-			}
+				for(i in 0...children.length) {
+					var found = false;
 
-			for(i in 0...container.numChildren) {
-				var el: Element = null;
-
-				for(child in children) {
-					if(child.properties['name'] == container.getChildAt(i).name) {
-						el = child;
-						break;
+					for(j in 0...container.numChildren) {
+						if(container.getChildAt(j).name == children[i].properties['name']) {
+							found = true;
+							break;
+						}
 					}
+
+					if(!found)
+						container.addChildAt(children[i].create(), i);
 				}
 
-				el.morph(container.getChildAt(i));
+				for(i in 0...container.numChildren) {
+					var el: Element = null;
+
+					for(child in children) {
+						if(child.properties['name'] == container.getChildAt(i).name) {
+							el = child;
+							break;
+						}
+					}
+
+					el.morph(container.getChildAt(i));
+				}
 			}
 		}
     }
