@@ -15,4 +15,4 @@ The same way it's done in Javascript, just with less bloat. Since OpenFL is inhe
 
 ### Getting Started
 
-Want to learn how to use Reaxe to make OpenFL-based UI in a really convenient way? Check out the [Getting Started Guide](https://github.com/Hyperdraw/reaxe/blob/master/Learn.md).
+Want to learn how to use Reaxe to make OpenFL-based UI in a really convenient way? Check out the [Getting Started Guide](https://github.com/universe-software/reaxe/blob/master/Learn.md).

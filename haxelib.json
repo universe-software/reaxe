@@ -1,12 +1,12 @@
 {
     "name": "reaxe",
-    "url": "https://github.com/Hyperdraw/reaxe",
+    "url": "https://github.com/universe-software/reaxe",
     "license": "LGPL",
     "tags": ["cross", "openfl", "reactive", "ui"],
     "description": "A reactive UI framework for OpenFL",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "classPath": "src/",
-    "releasenote": "Make morph not delete children of subcomponents",
+    "releasenote": "Move repository to universe-software on GitHub",
     "contributors": ["Hyperdraw"],
     "dependencies": {
         "openfl": "",
